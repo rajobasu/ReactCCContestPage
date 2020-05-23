@@ -1,6 +1,6 @@
 import axios from "axios";
 import { logoutUser } from "./LoginHandler";
-const backendURL = "http://localhost:8080/api";
+const backendURL = "https://cc-contest-arena-backend.herokuapp.com/api";
 
 /**
  * This is just used to check whether the user is still logged in properly or not.

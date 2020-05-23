@@ -5,6 +5,7 @@ import {
   getSubmissionForProblem,
   getLanguages,
 } from "../../APICalls/API";
+import ReactMarkdown from "react-markdown";
 import { Redirect } from "react-router-dom";
 import StickyHeadTable from "./Table";
 import Header from "../../components/Header";
@@ -72,7 +73,11 @@ export default function SpecificContestPage(props) {
                   <Typography variant="h3">
                     {problemDetails.problemName}
                   </Typography>
-                  <Typography>{problemDetails.body}</Typography>
+
+                  <ReactMarkdown
+                    source={problemDetails.body}
+                    escapeHtml={false}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={5}>
                   {(() => {

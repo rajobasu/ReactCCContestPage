@@ -5,10 +5,12 @@ import { Button, Link } from "@material-ui/core";
 import Header from "../../components/Header";
 import ContestSelector from "../../components/ContestSelector";
 import { Redirect } from "react-router-dom";
+import Selector from "./../../components/Selector";
 
 export default function ContestPage(props) {
   const [contestList, setContestList] = useState([]);
   const [selectedContest, setSelectedContest] = useState("");
+  const [contestType, setContestType] = useState("past");
 
   function contestListCallback(contestlist) {
     console.log("Finally got called back");
@@ -21,8 +23,12 @@ export default function ContestPage(props) {
   }
 
   useEffect(() => {
-    getContestList(contestListCallback);
-  }, []);
+    getContestList(contestListCallback, contestType);
+  }, [contestType]);
+
+  function contestTypeCallBack(event) {
+    setContestType(event.target.value);
+  }
 
   console.log("HREHRER: " + isLoggedIn());
 
@@ -37,6 +43,14 @@ export default function ContestPage(props) {
   return (
     <React.Fragment>
       <Header />
+      <Selector
+        items={[{ name: "past" }, { name: "present" }, { name: "future" }]}
+        selectedItem={contestType}
+        id="name"
+        display="Type"
+        onChange={contestTypeCallBack}
+      />
+      <br></br>
       <ContestSelector
         contestList={contestList}
         onSelect={handleContestSelectionEvent}

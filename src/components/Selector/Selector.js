@@ -1,11 +1,3 @@
-/**
- *
- * This class is not used currently anywhere. Instead, the Selector Component is used.
- *
- *
- *
- */
-
 import React, { useState } from "react";
 import {
   makeStyles,
@@ -26,24 +18,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LanguageSelector(props) {
+export default function Selector(props) {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <FormControl required className={classes.formControl}>
-        <InputLabel id="demo-simple-select-required-label">Lang</InputLabel>
+        <InputLabel id="demo-simple-select-required-label">
+          {props.display === undefined ? "" : props.display}
+        </InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
-          value={props.selectedLanguage}
+          value={props.selectedItem}
           onChange={props.onChange}
           className={classes.selectEmpty}
         >
-          {props.languages.map((language) => {
+          {props.items.map((language) => {
             return (
-              <MenuItem key={language.shortName} value={language.shortName}>
-                {language.shortName}
+              <MenuItem key={language[props.id]} value={language[props.id]}>
+                {language[props.id]}
               </MenuItem>
             );
           })}

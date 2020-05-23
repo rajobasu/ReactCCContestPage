@@ -36,15 +36,15 @@ function Header(props) {
   }
 
   return (
-    <AppBar position="static" className={classes.root}>
+    <AppBar position="static" className={classes.root} color="inherit">
       <Toolbar>
         <Typography className={classes.element}>
-          <Button href="/" color="secondary">
+          <Button variant="contained" href="/" color="primary">
             Codechef
           </Button>
         </Typography>
         <Typography className={classes.element}>
-          <Button href="/contests" color="secondary">
+          <Button variant="contained" href="/contests" color="primary">
             Contests
           </Button>
         </Typography>
@@ -55,16 +55,16 @@ function Header(props) {
             return <Typography>{name}</Typography>;
           }
         })()}
-        <Typography>
+        <Typography className={classes.element}>
           {
             // conditionally render the login and logout buttons
             (() => {
               if (isLoggedIn()) {
                 return (
                   <Button
-                    color="inherit"
+                    color="secondary"
                     onClick={logOutUser}
-                    className={classes.element}
+                    variant="contained"
                   >
                     {" "}
                     logout{" "}
@@ -73,9 +73,9 @@ function Header(props) {
               } else {
                 return (
                   <Button
-                    color="inherit"
+                    color="secondary"
                     href={backEndURLLOGIN}
-                    className={classes.element}
+                    variant="contained"
                   >
                     {" "}
                     login{" "}

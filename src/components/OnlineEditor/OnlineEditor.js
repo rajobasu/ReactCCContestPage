@@ -11,6 +11,7 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
+import Selector from "./../Selector";
 import LanguageSelector from "./LanguageSelector";
 import { submitCode, getProblemStatus } from "./../../APICalls/API";
 import createPalette from "@material-ui/core/styles/createPalette";
@@ -94,10 +95,12 @@ export default function OnlineEditor(props) {
           <h2>Problem Testing</h2>
         </Grid>
         <Grid item>
-          <LanguageSelector
-            languages={props.languages}
-            selectedLanguage={values.languageSelected}
+          <Selector
+            items={props.languages}
+            selectedItem={values.languageSelected}
+            id="shortName"
             onChange={handleChange("languageSelected")}
+            display="Land"
           />
         </Grid>
         <Grid container>

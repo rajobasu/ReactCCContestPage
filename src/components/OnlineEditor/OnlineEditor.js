@@ -51,7 +51,7 @@ export default function OnlineEditor(props) {
     if (status === null) {
       return;
     }
-    if (status.memory === 0) {
+    if (status.memory === 0 && status.cmpinfo == "") {
       getProblemStatus(getStatus, submitLink);
     } else {
       setValues({
@@ -68,7 +68,7 @@ export default function OnlineEditor(props) {
   }, [submitLink]);
 
   function runProblemCallBack(data) {
-    setValues({ ...values, status: "submitted" });
+    setValues({ ...values, status: "submitted: Processing" });
     console.log(data);
     setSubmitLink(data);
     //console.log("SUBMITLINK:" + submitLink);

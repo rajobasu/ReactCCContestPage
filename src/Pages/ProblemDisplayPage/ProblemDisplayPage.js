@@ -72,7 +72,10 @@ export default function SpecificContestPage(props) {
               <Grid container spacing={2} align-content={"space-between"}>
                 <Grid item xs={12} sm={7}>
                   <Typography variant="h3">
-                    {problemDetails.problemName}
+                    <ReactMarkdown
+                      source={problemDetails.problemName}
+                      escapeHtml={false}
+                    />
                   </Typography>
                   <ReactMarkdown
                     source={problemDetails.body}

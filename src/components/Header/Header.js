@@ -39,12 +39,12 @@ function Header(props) {
     <AppBar position="static" className={classes.root} color="inherit">
       <Toolbar>
         <Typography className={classes.element}>
-          <Button variant="contained" href="/" color="primary">
+          <Button variant="outlined" href="/" color="primary">
             Codechef
           </Button>
         </Typography>
         <Typography className={classes.element}>
-          <Button variant="contained" href="/contests" color="primary">
+          <Button variant="outlined" href="/contests" color="primary">
             Contests
           </Button>
         </Typography>

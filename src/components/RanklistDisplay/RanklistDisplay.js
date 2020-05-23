@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import StickyHeadTable from "./Table";
 import { getContestRanklist } from "../../APICalls/API";
 import SpaceElement from "../SpaceElement/SpaceElement";
+import { Grid, Typography } from "@material-ui/core";
 
 export default function RanklistDisplay(props) {
   const [ranklist, setRanklist] = useState(0);
@@ -24,7 +25,14 @@ export default function RanklistDisplay(props) {
 
   return (
     <React.Fragment>
-      <StickyHeadTable ranklist={ranklist} />
+      <Grid container direction="column">
+        <Grid item>
+          <Typography variant="h6">Ranklist:</Typography>
+        </Grid>
+        <Grid item>
+          <StickyHeadTable ranklist={ranklist} />
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 }

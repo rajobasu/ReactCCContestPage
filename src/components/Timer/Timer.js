@@ -16,15 +16,15 @@ export default function Timer(props) {
 
     const s = Math.floor(convertTime / 1000);
     if (d !== 0) {
-      ts += " Days: " + d;
+      ts += d + " Days, ";
     }
     if (h !== 0) {
-      ts += " Hours: " + h;
+      ts += h + " Hours, ";
     }
     if (m !== 0 || (m === 0 && (d !== 0 || h !== 0))) {
-      ts += " Mins: " + m;
+      ts += m + " Mins, ";
     }
-    ts += " Seconds: " + s;
+    ts += s + " Seconds";
     return ts;
   }
   const [time, setTime] = useState(getCurrentTime());

@@ -3,6 +3,7 @@ import StickyHeadTable from "./Table";
 import SpaceElement from "../SpaceElement";
 import { getUserDetails, getUsername } from "../../APICalls/LoginHandler";
 import { getSubmission } from "../../APICalls/API";
+import { Grid, Typography } from "@material-ui/core";
 
 export default function SubmissionInfoDisplay(props) {
   const [submissions, setSubmission] = useState(0);
@@ -32,7 +33,14 @@ export default function SubmissionInfoDisplay(props) {
   console.log(submissions);
   return (
     <React.Fragment>
-      <StickyHeadTable submissions={submissions} />
+      <Grid container direction="column">
+        <Grid item>
+          <Typography variant="h6">Recent Submissions</Typography>
+        </Grid>
+        <Grid item>
+          <StickyHeadTable submissions={submissions} />
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 }

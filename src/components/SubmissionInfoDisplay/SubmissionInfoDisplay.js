@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import StickyHeadTable from "./Table";
 import SpaceElement from "../SpaceElement";
-import { getUserDetails } from "../../APICalls/LoginHandler";
+import { getUserDetails, getUsername } from "../../APICalls/LoginHandler";
 import { getSubmission } from "../../APICalls/API";
 
 export default function SubmissionInfoDisplay(props) {
   const [submissions, setSubmission] = useState(0);
 
   function ranklistCallBack(submissions) {
+    console.log("THIS CALLBACK HAS BEEN CALLED");
     setSubmission(submissions.content);
   }
 
@@ -16,7 +17,8 @@ export default function SubmissionInfoDisplay(props) {
   }
 
   useEffect(() => {
-    getUserDetails(usernameCallback);
+    usernameCallback(getUsername());
+    //getUserDetails(usernameCallback);
   }, []);
 
   if (submissions === 0) {

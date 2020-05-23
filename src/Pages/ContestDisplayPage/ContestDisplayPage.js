@@ -19,7 +19,7 @@ export default function ContestDisplayPage(props) {
 
   useEffect(() => {
     getContestDetails(contestDetailsCallback, props.match.params.contestCode);
-  }, []);
+  }, [props.match.params.contestCode]);
   console.log("WOWOWHY " + isLoggedIn());
   if (!isLoggedIn()) {
     console.log("WOWOWHY " + isLoggedIn());

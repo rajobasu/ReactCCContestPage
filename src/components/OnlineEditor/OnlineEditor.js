@@ -86,60 +86,62 @@ export default function OnlineEditor(props) {
   }
 
   return (
-    <Grid container direction="column">
-      <Grid item></Grid>
-      <Grid item xs={8}>
-        <br />
-        <h2>Problem Testing</h2>
-      </Grid>
-      <Grid item>
-        <LanguageSelector
-          languages={props.languages}
-          selectedLanguage={values.languageSelected}
-          onChange={handleChange("languageSelected")}
-        />
-      </Grid>
-      <Grid container>
+    <React.Fragment>
+      <Grid container direction="column">
+        <Grid item></Grid>
+        <Grid item xs={8}>
+          <br />
+          <h2>Problem Testing</h2>
+        </Grid>
         <Grid item>
-          <Grid container direction="column">
-            <Grid item>
-              <h5>Source Code</h5>
+          <LanguageSelector
+            languages={props.languages}
+            selectedLanguage={values.languageSelected}
+            onChange={handleChange("languageSelected")}
+          />
+        </Grid>
+        <Grid container>
+          <Grid item>
+            <Grid container direction="column">
+              <Grid item>
+                <h5>Source Code</h5>
+              </Grid>
+              <Grid item>
+                <TextareaAutosize
+                  className={classes.textField}
+                  onChange={handleChange("sourceCode")}
+                />
+              </Grid>
             </Grid>
-            <Grid item>
-              <TextareaAutosize
-                className={classes.textField}
-                onChange={handleChange("sourceCode")}
-              />
+          </Grid>
+          <Grid item>
+            <Grid container direction="column">
+              <Grid item>
+                <h5>Test Case</h5>
+              </Grid>
+              <Grid item>
+                <TextareaAutosize
+                  className={classes.textField}
+                  onChange={handleChange("testCase")}
+                />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item>
-          <Grid container direction="column">
-            <Grid item>
-              <h5>Test Case</h5>
-            </Grid>
-            <Grid item>
-              <TextareaAutosize
-                className={classes.textField}
-                onChange={handleChange("testCase")}
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-      <Button color="inherit" onClick={runProblem}>
-        Submit
-      </Button>
-      <h5>Status: {values.status}</h5>
+        <Button color="inherit" onClick={runProblem}>
+          Submit
+        </Button>
+        <h5>Status: {values.status}</h5>
 
-      <Typography className={{ flexGrow: 1 }}>{values.output}</Typography>
-      <Typography
-        className={{ flexGrow: 1 }}
-        rows={7}
-        //value={values.cmpinfo}
-      >
-        {values.cmpinfo}
-      </Typography>
-    </Grid>
+        <Typography>{values.output}</Typography>
+        <Typography
+          className={{ flexGrow: 1 }}
+          rows={7}
+          //value={values.cmpinfo}
+        >
+          {values.cmpinfo}
+        </Typography>
+      </Grid>
+    </React.Fragment>
   );
 }

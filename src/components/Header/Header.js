@@ -32,7 +32,7 @@ function Header(props) {
 
   async function logOutUser() {
     await logoutUser();
-    props.logoutHandler();
+    //props.logoutHandler();
   }
 
   return (

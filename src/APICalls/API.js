@@ -56,6 +56,7 @@ export function getContestRanklist(callback, contestCode) {
 export function getSubmission(callback, contestCode, username) {
   const actualURL =
     backendURL + "/submissions/" + contestCode + "/user/" + username;
+
   console.log(actualURL);
   axios
     .get(actualURL, {
@@ -63,6 +64,7 @@ export function getSubmission(callback, contestCode, username) {
     })
     .then((response) => {
       if (!isValid(response)) logoutUser();
+
       console.log(response.data);
       callback(response.data);
     })

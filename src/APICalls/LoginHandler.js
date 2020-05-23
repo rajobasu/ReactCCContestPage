@@ -17,32 +17,33 @@ export async function logoutUser() {
 }
 
 export function getUserDetails(callback) {
-  if (isLoggedIn()) {
-    callback(userinfo);
-    return;
-  }
+  //if (isLoggedIn() && sessionStorage.getItem("userdetails") !== undefined) {
+  //callback(sessionStorage.getItem("userdetails"));
+  //return;
+  //}
   console.log("OOF");
   axios
     .get(backendURL + "/userinfo", { withCredentials: true })
     .then((response) => {
       if (!isValid(response)) logoutUser();
       else {
-        sessionStorage.setItem("LoggedIn", "true");
         userinfo = response.data;
-        console.log("MADE A SUCCESSFUL LOGIN");
+        sessionStorage.setItem("LoggedIn", "true");
+        sessionStorage.setItem("userdetails", userinfo.username);
       }
-
+      console.log(userinfo);
       callback(userinfo);
     });
 }
 
 export function getUsername() {
-  if (isLoggedIn()) return userinfo.username;
+  console.log(sessionStorage.getItem("userdetails"));
+  if (isLoggedIn() && sessionStorage.getItem("userdetails") != null)
+    return sessionStorage.getItem("userdetails");
   else return "";
 }
 
 export function isLoggedIn() {
-  console.log(sessionStorage.getItem("LoggedIn"));
   return sessionStorage.getItem("LoggedIn") === "true";
 
   // axios

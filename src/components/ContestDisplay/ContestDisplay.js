@@ -16,7 +16,11 @@ export default function ContestDisplay(props) {
   let code = 0;
   let ddt = undefined;
 
-  if (contestDetails.problemsList === null) {
+  if (
+    contestDetails.problemsList === null ||
+    contestDetails.problemsList === undefined ||
+    contestDetails.problemsList.length === 0
+  ) {
     // future contest
   } else {
     ddt = parseInt(Date.parse(contestDetails.problemsList[0].end));

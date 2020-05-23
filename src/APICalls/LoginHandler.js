@@ -1,7 +1,7 @@
 import axios from "axios";
 import { isValid } from "./API";
 
-const backendURL = "http://localhost:8080/api";
+const backendURL = "https://cc-contest-arena-backend.herokuapp.com/api";
 
 let userinfo = {};
 

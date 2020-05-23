@@ -16,7 +16,8 @@ import {
 import SpaceElement from "../SpaceElement/SpaceElement";
 import { Redirect } from "react-router-dom";
 
-const backEndURLLOGIN = "http://localhost:8080/api/login";
+const backEndURLLOGIN =
+  "https://cc-contest-arena-backend.herokuapp.com/api/login";
 
 const useStyles = makeStyles((theme) => ({
   root: {

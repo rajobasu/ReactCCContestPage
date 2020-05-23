@@ -12,6 +12,7 @@ import Header from "../../components/Header";
 import { Link, Grid, Typography, TextareaAutosize } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import OnlineEditor from "../../components/OnlineEditor/OnlineEditor";
+import Latex from "./../../components/LatexHelper";
 
 export default function SpecificContestPage(props) {
   const [problemDetails, setProblemDetails] = useState(0);
@@ -73,7 +74,6 @@ export default function SpecificContestPage(props) {
                   <Typography variant="h3">
                     {problemDetails.problemName}
                   </Typography>
-
                   <ReactMarkdown
                     source={problemDetails.body}
                     escapeHtml={false}
